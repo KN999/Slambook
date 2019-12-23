@@ -1,0 +1,39 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+.container {
+    width:80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#navbar {
+    background-color: #333;
+    color: #fff;
+}
+
+#navbar ul {
+    padding: 7px;
+    list-style: none;
+    text-align: right;
+}
+
+#navbar li {
+    display: inline;
+    width: 25px;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+@media(max-width:600px){
+    #navbar li{
+      display: block;
+    }
+  }
