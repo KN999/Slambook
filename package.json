@@ -1,0 +1,22 @@
+{
+  "name": "slambook",
+  "version": "1.0.0",
+  "description": "\"A childhood memory implemented with a technical twist.\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "react",
+    "mongodb-atlas"
+  ],
+  "author": "Navin Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.4.1"
+  }
+}

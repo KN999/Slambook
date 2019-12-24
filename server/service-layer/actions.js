@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 const crypto = require("crypto")
 
-var DatabaseClient = require('../../database-layer/shops');
-var Token = require('../../business-layer/Auth');
+var DatabaseClient = require('../database-layer/actions');
 
 router.get('/usershops', function(req, res) {
     DatabaseClient.UserShops(req.query.token, (result) => {

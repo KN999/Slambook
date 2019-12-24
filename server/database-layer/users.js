@@ -1,18 +1,16 @@
 const MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
-const uri = "mongodb+srv://navin:navin@findthatshop-qbdo0.mongodb.net/test?retryWrites=true&w=majority";
-
-var Token = require('../business-layer/Auth');
+const uri = "mongodb+srv://navin:qwerty@123@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
 
 exports.ValidateUser = function (user, callback) {
 
     MongoClient.connect(uri, function (err, client) {
         assert.equal(null, err);
-        var db = client.db('shopkeeper');
+        var db = client.db('slambooks');
         var result = {};
 
-        db.collection('shopuser').find({ username: user.username }).forEach(function (dbuser) {
+        db.collection('users').find({ username: user.username }).forEach(function (dbuser) {
 
             if (dbuser.password === user.password) {
                 result.code = 102; // 102 - Credential Matched
@@ -39,11 +37,11 @@ exports.ValidateUser = function (user, callback) {
 exports.CheckUsername = (username, callback) => {
     MongoClient.connect(uri, function (err, client) {
         assert.equal(null, err);
-        var db = client.db('shopkeeper');
+        var db = client.db('slambooks');
         var result = {};
 
         // Check if username is available
-        db.collection('shopuser').find({ username: username }).forEach(function (dbuser) {
+        db.collection('users').find({ username: username }).forEach(function (dbuser) {
             if (dbuser) {
 
                 result.code = 300; // 300 - Invalid Username/ username already taken
@@ -60,10 +58,8 @@ exports.CheckUsername = (username, callback) => {
             client.close();
             callback(result)
         });
-
     });
 }
-
 
 exports.RegisterUser = (user, callback) => {
 
@@ -71,11 +67,11 @@ exports.RegisterUser = (user, callback) => {
 
     MongoClient.connect(uri, function (err, client) {
         assert.equal(null, err);
-        var db = client.db('shopkeeper');
+        var db = client.db('slambooks');
         var result = {};
     
         // Add user
-        db.collection('shopuser').insertOne(user, function (err, res) {
+        db.collection('users').insertOne(user, function (err, res) {
 
             result.code = 303;// 303 - user registered successfully
             result.message = 'Success';
