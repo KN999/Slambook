@@ -1,43 +1,40 @@
 var express = require('express');
 var router = express.Router();
-const crypto = require("crypto")
+const crypto = require("crypto");
 
 var DatabaseClient = require('../database-layer/actions');
 
-router.get('/usershops', function(req, res) {
-    DatabaseClient.UserShops(req.query.token, (result) => {
+// Search the user
+router.get('/search', function(req, res) {
+    var username = req.query.username;
+    DatabaseClient.FindUser(username, (result) => {
         res.send(result);
     })
 })
 
-router.get('/getshop', function(req, res) {
-    DatabaseClient.GetShop(req.query.shopid, (result)=> {
+// Dashboard of user
+router.get('/slampages', function(req, res) {
+    DatabaseClient.Slampages(req.query.username, (result) => {
         res.send(result);
     })
 })
 
-router.post('/addshop', function (req, res) {
+// Add Slampages
+router.post('/addpage', function (req, res) {
 
-    var shop = {
+    var slampage = {
         username: req.body.username,
-        shopid : crypto.randomBytes(16).toString("hex"),
-        shopName: req.body.shopname,
-        shopOwner: req.body.shopowner,
-        shopAddress: req.body.shopaddress,
-        shopContactNo: req.body.shopcontactno,
-        image : '',
+        writer: req.body.writer,
+        Q1: req.body.Q1,
+        Q2: req.body.Q2,
+        Q3: req.body.Q3,
+        Q4: req.body.Q4,
+        Q5: req.body.Q5,
     };
 
-    if (shop.shopid) {
-        console.log("$$$$$$$",shop.shopid,shop.username);
-        DatabaseClient.AddShop(shop, (result) => {
-            res.send(result);
-        });
-    }
-    else {
-        res.send({code: 907, message:"can't preocess data"});
-    }
-
+    DatabaseClient.AddPage(slampage, (result) => {
+        res.send(result);
+    });
 });
 
 module.exports = router;

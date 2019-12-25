@@ -1,95 +1,92 @@
 const MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
-const uri = "mongodb+srv://navin:navin@findthatshop-qbdo0.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://navin:qwerty@123@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
 
-exports.AddShop = (shopDetails, callback) => {
+exports.FindUser = (user, callback) => {
 
     MongoClient.connect(uri, function (err, client) {
         assert.equal(null, err);
-        console.log("fdskjjsfjlj",shopDetails)
-        var shop =  {
-            shopid : shopDetails.shopid,
-            shopName : shopDetails.shopName,
-            shopOwner: shopDetails.shopOwner,
-            shopAddress: shopDetails.shopAddress,
-            shopContactNo: shopDetails.shopContactNo,
-            image : '',
-        }
-        
-        var userShop = {
-            username : shopDetails.username,
-            shops : []
-        }
-        userShop.shops.push(shop)
-        
-        var db = client.db('shopkeeper');
-        var result = {};
-
-        // Find the userShop delete it and add it to 
-        db.collection('shop').find({ username: shopDetails.username }).forEach(function (dbshop) {
-            if (dbshop) {
-                dbshop.shops.forEach(element => {
-                    userShop.shops.push(element)
-                })
-                
-                db.collection('shop').deleteOne({ username: shopDetails.username, _id: dbshop._id })
-                
-            }
-        }, () => {
-            // Add shop
-            db.collection('shop').insertOne(userShop, function (err, res) {
-
-                result.code = 403;// 403 - shop registered successfully
-                result.message = 'Success';
-                console.log("item inserted");
-
-                callback(result);
-                client.close();
-            });
-        })
-    });
-}
-
-exports.UserShops = (username, callback) => {
-    MongoClient.connect(uri, function (err, client) {
-
-        assert.equal(null, err);
-        var db = client.db('shopkeeper');
+        var db = client.db('slambooks');
         var result = {
-            code : 405, // No shops added
-            message : "No shop found",
+            code : 705,
+            message : "No user found",
         };
 
-        // Find the userShop delete it and add it to 
-        db.collection('shop').find({ username: username }).forEach(function (dbshop) {
-            if (dbshop) {
-                result.code = 404; // Success in retrieving data
+        var users = [];
+ 
+        db.collection('users').find({ username : user }).forEach(function (dbuser) {
+            if (dbuser) {
+                result.code = 405;
                 result.message = "Data found";
-                result.shop = dbshop;
+                users.push({
+                    name: dbuser.name,
+                    username: dbuser.username,
+                });
+                result.user = users;
             }
         },() => {
                 callback(result);
         })
+        client.close();
     });
 }
 
-exports.GetShop = (shopid, callback) => {
+exports.AddPage = (slampagedetails, callback) => {
+
     MongoClient.connect(uri, function (err, client) {
-        console.log("%%%%%%%%%%%",shopid)
         assert.equal(null, err);
-        var db = client.db('shopkeeper');
-        var result = {
-            code : 405, // No shops added
-            message : "No shop found",
+
+        var slampage = {
+            writer: slampagedetails.writer,
+            Q1: slampagedetails.Q1,
+            Q2: slampagedetails.Q2,
+            Q3: slampagedetails.Q3,
+            Q4: slampagedetails.Q4,
+            Q5: slampagedetails.Q5,
         };
 
-        // Find the userShop delete it and add it to 
-        db.collection('shop').find({"shops.shopid": shopid}).forEach(function (dbshop) {
-            if (dbshop) {
+    var db = client.db('slambooks');
+    var results = {};
+
+    db.collection('users').update(
+        { username: slampagedetails.username },
+        { $addToSet: { slampages: slampage } },
+        function (err, result) {
+            if (err) {
+                results.code = '404';
+                results.message = 'Failure';
+                callback(results);
+                throw err;
+            }
+            else {
+                results.code = 403;
+                results.message = 'Success';
+                callback(results);
+                console.log(results);
+            }
+    })
+    
+    client.close();
+
+    })
+}
+
+exports.Slampages = (username, callback) => {
+    MongoClient.connect(uri, function (err, client) {
+
+        assert.equal(null, err);
+        var db = client.db('slambooks');
+        var result = {
+            code : 405, 
+            message : "No slampages",
+        };
+
+        db.collection('users').find({ username: username }).forEach(function (slampages) {
+            if (slampages) {
                 result.code = 404; // Success in retrieving data
                 result.message = "Data found";
-                result.shop = dbshop;
+                result.slampages = slampages;
             }
         },() => {
                 callback(result);

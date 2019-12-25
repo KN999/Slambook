@@ -24,6 +24,7 @@ router.post('/register', function (req, res) {
         name: req.body.name,
         username: req.body.username,
         password: req.body.password,
+        slampages: [],
     };
 
     DatabaseClient.CheckUsername(user.username, (result) => {
