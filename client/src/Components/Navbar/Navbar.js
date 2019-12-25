@@ -1,7 +1,8 @@
 import React from 'react';
-import './Navbar.css';
+//import './Navbar.css';
+
 function Navbar() {
-    return(
+    return (
         <nav id="navbar">
             <div classname="container">
                 <ul>
