@@ -1,12 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import Navbar from './Components/Navbar/Navbar';
-import './App.css';
 import Homepage from './Components/Homepage/Homepage';
+import Login from './Components/Login/Login';
+import './App.css';
+/*import {
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from 'react-router-dom';*/
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <Homepage />
+    <Router>
+        <Route exact path='/' component={Homepage} />
+        <Route path='/Login' component={Login} />
+    </Router>
   );
 }
 

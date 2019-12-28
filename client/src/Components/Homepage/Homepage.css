@@ -6,21 +6,27 @@ a {
     text-decoration: none;
     padding: 0px;
     color: #fff;
+    transition: 0.2s;
 }
 
 a:hover {
-    color: aqua;
+    background-color: white;
+    color: #0074D9;
+    border-radius: 10px;
+    width: 50px;
 }
 
 .container {
-    width: 80%;
+    margin: auto;
     text-decoration: none;
-    margin: 0px;
-    padding: 0px;
+}
+
+#homepage {
+    height: 100vh;
+    background: linear-gradient(to left, #fc00ff, #00dbde);
 }
 
 #home-header {
-    background-color: #333;
     color: #fff;
     padding: 20px;
     width: 100%;
@@ -41,19 +47,16 @@ a:hover {
     padding: 0px;
     margin-top: -30px;
     text-align: center;
-    font-size: 35px;
+    font-size: 2.3em;
     font-family: 'Courgette', cursive;
 }
 
 #home-content {
     padding: 0px;
-    margin: 0px;
     text-align: center;
-    background-color: #333;
     color: #fff;
     width: 100%;
     overflow: hidden;
-    height: 50vh;
 }
 
 #home-content h3 {
@@ -61,3 +64,15 @@ a:hover {
     margin: 0px;
     font-size: 25px;
 }
+
+@media(max-width:600px){
+    #home-header h1 {
+        font-size: 6em;
+    }
+
+    #home-header h3 {
+        font-size: 1.37em;
+        margin-top: -15px;
+    }
+  }
+  
