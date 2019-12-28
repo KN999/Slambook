@@ -16,10 +16,12 @@ function Login () {
                     <div className="container">
                         <form>
                             <div className="form-group">
-                                <input type="text" name="username" placeholder="Username" className="form-field"/>
+                                <input type="text" name="username" className="form-field" autoComplete="off" />
+                                <span data-placeholder="Username"></span>
                             </div>
                             <div className="form-group">
-                                <input type="text" name="password" placeholder="Password" className="form-field"/>
+                                <input type="text" name="password" className="form-field" autoComplete="off" />
+                                <span data-placeholder="Password"></span>
                             </div>
 
                             <input type="submit" value="Log in" className="form-btn"/>
