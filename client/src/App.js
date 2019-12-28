@@ -1,6 +1,7 @@
 import React from 'react';
 import Homepage from './Components/Homepage/Homepage';
 import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 import './App.css';
 /*import {
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ function App() {
     <Router>
         <Route exact path='/' component={Homepage} />
         <Route path='/Login' component={Login} />
+        <Route path='/Register' component={Register} />
     </Router>
   );
 }

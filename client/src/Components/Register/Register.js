@@ -1,14 +1,14 @@
 import React from 'react';
-import './Login.css';
+import './Register.css';
 
-function Login () {
+function Register () {
     return (
-        <div id="login">
-            <div id="form-login">
+        <div id="register">
+            <div id="form-register">
                 <div className="form-head">
                     <div className="container">
                         <h2>
-                            Login
+                            Register
                         </h2>
                     </div>
                 </div>
@@ -20,18 +20,24 @@ function Login () {
                                 <span data-placeholder="Username"></span>
                             </div>
                             <div className="form-group">
+                                <input type="text" name="name" className="form-field" autoComplete="off" />
+                                <span data-placeholder="Name"></span>
+                            </div>
+                            <div className="form-group">
                                 <input type="text" name="password" className="form-field" autoComplete="off" />
                                 <span data-placeholder="Password"></span>
                             </div>
-
-                            <input type="submit" value="Log in" className="form-btn"/>
-
-                        </form>
+                            <div className="form-group">
+                                <input type="text" name="confirm-password" className="form-field" autoComplete="off" />
+                                <span data-placeholder="Confirm Password"></span>
+                            </div>
+                            <input type="submit" value="Register" className="form-btn"/>
+                        </form>        
                     </div>
                 </div>
                 <div className="form-tail">
                     <div className="container">
-                        Don't have a account? <a href="#">Register</a>
+                        already have a account?<a href="#">Log in</a>    
                     </div>
                 </div>
             </div>
@@ -39,4 +45,4 @@ function Login () {
     );
 }
 
-export default Login;
+export default Register;
