@@ -14,14 +14,36 @@ function showSlampages (data) {
     return (
         <div>
             {data.map( (slampage) => (
-                <div>
-                    Writer : {slampage.writer}
-                    Q1 : {slampage.Q1}
-                    Q2 : {slampage.Q2}
-                    Q3 : {slampage.Q3}
-                    Q4 : {slampage.Q4}
-                    Q5 : {slampage.Q5}
-                </div>
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>: {slampage.writer}</td>
+                    </tr>
+                    <tr>
+                        <td>My biggest dream</td>
+                        <td>: {slampage.Q1}</td>
+                    </tr>
+                    <tr>
+                        <td>I have a crush on</td>
+                        <td>: {slampage.Q2}</td>
+                    </tr>
+                    <tr>
+                        <td>About you I feel</td>
+                        <td>: {slampage.Q3}</td>
+                    </tr>
+                    <tr>
+                        <td>Something I like about you</td>
+                        <td>: {slampage.Q4}</td>
+                    </tr>
+                    <tr>
+                        <td>Something I like about you</td>
+                        <td>: {slampage.Q5}</td>
+                    </tr>
+                    <tr>
+                        <td>Something I hate about you</td>
+                        <td>: {slampage.Q6}</td>
+                    </tr>
+              </table>
             ))}
         </div>
     )
@@ -55,7 +77,7 @@ function SlamPages () {
 
 
     return (
-        <div className="slam-pages">
+        <div id="slam-pages">
             <div className="container">
                 {(Slampages)?showSlampages(Slampages):AlternativeText()}
             </div>
