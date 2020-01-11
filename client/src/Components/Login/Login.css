@@ -1,11 +1,6 @@
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
 #login {
     text-align: center;
-    background: linear-gradient(to bottom, #abbaab, #ffffff); 
+    background: linear-gradient(to bottom, #fd746c, #904e95);
     height: 100vh;
     color: #fff;
 }
@@ -16,7 +11,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(12,12,12,0.8);
-    background: linear-gradient(to bottom, #ffb75e, #ed8f03);
     border-radius: 30px;
     height: 80vh;
     width: 65vh;
@@ -33,7 +27,7 @@
 }
 
 .form-group {
-    border-bottom: 2px solid #adadad;
+border-bottom: 2px solid #adadad;
   position: relative;
   margin: 30px 0;
 }
@@ -73,6 +67,7 @@
 input:focus + span::before{
     top: -5px;
 }
+
 input:focus + span::after{
     width: 100%;
 }

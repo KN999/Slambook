@@ -30,6 +30,7 @@ router.post('/addpage', function (req, res) {
         Q3: req.body.Q3,
         Q4: req.body.Q4,
         Q5: req.body.Q5,
+        Q6: req.body.Q6,
     };
 
     DatabaseClient.AddPage(slampage, (result) => {

@@ -44,6 +44,7 @@ exports.AddPage = (slampagedetails, callback) => {
             Q3: slampagedetails.Q3,
             Q4: slampagedetails.Q4,
             Q5: slampagedetails.Q5,
+            Q6: slampagedetails.Q6,
         };
 
     var db = client.db('slambooks');
@@ -86,7 +87,7 @@ exports.Slampages = (username, callback) => {
             if (slampages) {
                 result.code = 404; // Success in retrieving data
                 result.message = "Data found";
-                result.slampages = slampages;
+                result.slambook = slampages;
             }
         },() => {
                 callback(result);

@@ -1,0 +1,23 @@
+.search-form {
+    width: 70%;
+}
+
+#dash-search .container {
+    text-align: -webkit-center;
+}
+
+#dash-search .form-field {
+    font-size: 3em;
+    color: white;
+}
+
+#dash-search .form-btn {
+    margin: 0px;
+    border: none;
+    padding: 7px 17px;
+    background-color: #ffffff;
+    color: #0074d9;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: x-large;
+}

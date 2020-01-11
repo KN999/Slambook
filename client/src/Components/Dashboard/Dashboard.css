@@ -1,0 +1,26 @@
+#dashboard {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    height: 100vh;
+}
+
+.dash-head {
+    margin: auto;
+    height: 30vh;
+    color: #ffffff;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.dash-head h1 {
+    font-size: 5em;  
+}
+
+.search {
+    padding: 0px;
+}
+
+@media(max-width:600px){
+    .dash-head h1 {
+        font-size: 3.5em;  
+    }
+  }

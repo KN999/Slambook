@@ -12,9 +12,9 @@ function Homepage() {
             </header>
             <main id="home-content">
                 <div className="container" >
-                    <h3><a href="#">Register with us</a></h3>
+                    <h3><a href="/Register">Register with us</a></h3>
                     <legend>Or</legend>
-                    <h3><a href="#">Manage your slambook</a></h3>
+                    <h3><a href="/Login">Manage your slambook</a></h3>
                 </div>
             </main>
         </div>

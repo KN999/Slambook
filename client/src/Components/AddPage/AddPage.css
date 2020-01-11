@@ -1,24 +1,29 @@
-#register {
+#addpage {
     text-align: center;
-    background: linear-gradient(to bottom, #fd746c, #904e95);
+    background: linear-gradient(to bottom, #8a2387, #e94057, #f27121);
     height: 100vh;
     color: #fff;
 }
 
-#form-register {
+#form-addpage {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(12,12,12,0.8);
     border-radius: 30px;
-    height: 85vh;
-    width: 65vh;
+    background:transparent;
+    height: 98vh;
+    width: 85vh;
+}
+
+.addpage {
+    margin:0.5em;
 }
 
 @media(max-width:600px){
-    #form-register {
-        height: 80vh;
+    #form-addpage {
+        height: 95vh;
         width: 45vh;
     }
   }
