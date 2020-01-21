@@ -1,7 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+require('dotenv').config()
 
-const uri = "mongodb+srv://navin:qwerty@123@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${USERNAME}:${MONGODB_ATLAS_PASSWORD}@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority`;
 
 exports.FindUser = (user, callback) => {
 
