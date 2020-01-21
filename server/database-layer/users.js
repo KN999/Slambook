@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
-const uri = `mongodb+srv://${USERNAME}:${MONGODB_ATLAS_PASSWORD}@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority`;
 
 exports.ValidateUser = function (user, callback) {
 
