@@ -54,29 +54,29 @@ function AddPage (props) {
                 <div className="form-body">
                     <div className="container">
                         <form onSubmit={onSubmit}>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-200px">My biggest dream : </label>
                                 <input type="text" name="Q1" className="form-field" autoComplete="off" value={Q1} onChange={ e => setQ1(e.target.value) } required/>
-                                <span data-placeholder="My biggest dream "></span>
                             </div>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-200px">I have a crush on : </label>
                                 <input type="text" name="Q2" className="form-field" autoComplete="off" value={Q2} onChange={ e => setQ2(e.target.value) } required/>
-                                <span data-placeholder="I have a crush on "></span>
                             </div>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-200px">About you I feel : </label>
                                 <input type="text" name="Q3" className="form-field" autoComplete="off" value={Q3} onChange={ e => setQ3(e.target.value) } required/>
-                                <span data-placeholder="About you I feel "></span>
                             </div>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-480px">Relationship between you and me : </label>
                                 <input type="text" name="Q4" className="form-field" autoComplete="off" value={Q4} onChange={ e => setQ4(e.target.value) } required/>
-                                <span data-placeholder="Relationship between you and me "></span>
                             </div>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-345px">Something I like about you : </label>
                                 <input type="text" name="Q5" className="form-field" autoComplete="off" value={Q5} onChange={ e => setQ5(e.target.value) } required/>
-                                <span data-placeholder="Something I like about you "></span>
                             </div>
-                            <div className="form-group">
+                            <div className="form-group question">
+                                <label className="width-345px">Something I hate about you : </label>
                                 <input type="text" name="Q6" className="form-field" autoComplete="off" value={Q6} onChange={ e => setQ6(e.target.value) } required/>
-                                <span data-placeholder="Something I hate about you "></span>
                             </div>
                             <input type="submit" value="Add Page" className="addpage form-btn"/>
                         </form>        

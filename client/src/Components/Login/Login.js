@@ -9,7 +9,7 @@ function Login (props) {
 
     function onSubmit(event) {
         event.preventDefault();
-        axios.post('/users/login', {
+        axios.post('/user/login', {
             username: username,
             password: password,
           })
@@ -17,7 +17,8 @@ function Login (props) {
                
             if(response.data.code === 102) 
             {  
-                //localStorage.setItem('Token', user.username);
+                console.log("result : ", response);
+                localStorage.setItem('Token', response.data.token);
                 props.history.push("/Dashboard");            
             }
             else 
@@ -46,12 +47,12 @@ function Login (props) {
                     <div className="container">
                         <form onSubmit={onSubmit}>
                             <div className="form-group">
-                                <input type="text" name="username" className="form-field" autoComplete="off" value={username} onChange = {e => setUsername(e.target.value)} required />
-                                <span data-placeholder="Username"></span>
+                                <input type="text" placeholder="Username" name="username" className="form-field" autoComplete="off" value={username} onChange = {e => setUsername(e.target.value)} required />
+                                <span data-placeholder=""></span>
                             </div>
                             <div className="form-group">
-                                <input type="password" name="password" className="form-field" autoComplete="off" value={password} onChange = {e => setPassword(e.target.value)} required/>
-                                <span data-placeholder="Password"></span>
+                                <input type="password" placeholder="Password" name="password" className="form-field" autoComplete="off" value={password} onChange = {e => setPassword(e.target.value)} required/>
+                                <span data-placeholder=""></span>
                             </div>
 
                             <input type="submit" value="Log in" className="form-btn"/>

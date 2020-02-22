@@ -1,6 +1,6 @@
 #homepage {
     height: 100vh;
-    background: linear-gradient(to left, #fc00ff, #00dbde);
+    background: linear-gradient(to left, #c133f7, #2ab6e3);
 }
 
 #home-header {
@@ -18,6 +18,7 @@
     text-align: center;
     font-size: 10em;
     font-family: 'Dancing Script', cursive;
+    margin-top: 15vh;
 }
 
 #home-header h3{
@@ -34,6 +35,7 @@
     color: #fff;
     width: 100%;
     overflow: hidden;
+    margin-top: 10vh;
 }
 
 #home-content h3 {
@@ -49,11 +51,39 @@
 
     #home-header h1 {
         font-size: 6em;
+        margin-top: 20vh;
     }
 
     #home-header h3 {
         font-size: 1.37em;
         margin-top: -15px;
     }
-  }
+
+    a {
+        font-size: 0.7em;
+    }
+
+    #home-content {
+        margin-top: 0px;
+    }
+}
   
+@media(max-width:370px){
+    #homepage {
+        background-size: 250%;
+    }
+
+    #home-header h1 {
+        font-size: 5em;
+        margin-top: 20vh;
+    }
+
+    #home-header h3 {
+        font-size: 1.37em;
+        margin-top: -15px;
+    }
+
+    a {
+        font-size: 0.7em;
+    }
+  }

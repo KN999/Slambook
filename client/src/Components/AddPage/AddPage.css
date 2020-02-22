@@ -21,6 +21,25 @@
     margin:0.5em;
 }
 
+.width-200px {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.width-345px {
+    width: 345px;
+    margin-top: 10px;
+}
+
+.width-480px {
+    width: 480px;
+    margin-top: 10px;   
+}
+
+.question {
+    display: flex;
+}
+
 @media(max-width:600px){
     #form-addpage {
         height: 95vh;

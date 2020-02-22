@@ -3,7 +3,7 @@ import Search from '../Search/Search';
 import SlamPages from '../SlamPages/SlamPages';
 import './Dashboard.css';
 
-function Dashboard() {
+function Dashboard(props) {
 
     return (
         <div id="dashboard">
@@ -12,7 +12,7 @@ function Dashboard() {
                     <h1>SlamBoard</h1>
                 </div>
             </div>
-            <Search />
+            <Search props={props}/>
             <SlamPages />
         </div>
     );

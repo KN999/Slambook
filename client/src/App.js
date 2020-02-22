@@ -4,26 +4,34 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Dashboard from './Components/Dashboard/Dashboard';
 import AddPage from './Components/AddPage/AddPage';
-import Register2 from './Components/Register2/Register2';
 import './App.css';
-/*import {
+import {
   BrowserRouter as Router,
   Route,
   Redirect
-} from 'react-router-dom';*/
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+} from 'react-router-dom';
 
 function App() {
   return (
     <Router>
         <Route exact path='/' component={Homepage} />
-        <Route exact path='/Addpage' component={AddPage} />
         <Route path='/Login' component={Login} />
         <Route path='/Register' component={Register} />
-        <Route path='/Register2' component={Register2} />
-        <Route path='/Dashboard' component={Dashboard} />
+        <PrivateRoute authed={Boolean(localStorage.getItem('Token'))} exact path='/Addpage' component={AddPage} />
+        <PrivateRoute authed={Boolean(localStorage.getItem('Token'))} exact path='/Dashboard' component={Dashboard} />
     </Router>
   );
+}
+
+function PrivateRoute ({component: Component, authed, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => Boolean(localStorage.getItem('Token'))
+        ? <Component {...props} />
+        : <Redirect to={{pathname: '/Login', state: {from: props.location}}} />}
+    />
+  )
 }
 
 export default App;

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './Search.css';
 
-function Search () {
+function Search (props) {
 
     const [username, setUsername] = useState('');
     const [result, setResult] = useState();
@@ -22,6 +22,8 @@ function Search () {
                 {  
                     setResult(res.data.user);
                     temp = res.data;
+                    console.log("searched!");
+                    props.history.push("/");
                 }
                 else 
                 {
@@ -43,7 +45,7 @@ function Search () {
         <div id="dash-search">
             <div className="container">
                 <form onSubmit={onSubmit} className="search-form">
-                    <div className="form-group">
+                    <div className="form-group input-search">
                         <input type="text"
                             name="username"
                             className="search form-field"
@@ -52,7 +54,9 @@ function Search () {
                             onChange={(val)=>setUsername(val.target.value)}
                         />
                     </div>
-                    <input type="submit" value="Go" className="form-btn" />
+                    <div>
+                        <input type="submit" value="Go" className="form-btn" />
+                    </div>
                 </form>
             </div>
         </div>

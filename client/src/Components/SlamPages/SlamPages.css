@@ -16,3 +16,13 @@ table {
     font-size: larger;
     box-shadow: 1px 3px 7px black;
 }
+
+.display-flex {
+    display: flex;
+}
+
+@media(max-width:1200px){
+    .display-flex {
+        display: block;  
+    }
+  }

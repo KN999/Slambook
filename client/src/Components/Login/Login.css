@@ -27,14 +27,14 @@
 }
 
 .form-group {
-border-bottom: 2px solid #adadad;
+  border-bottom: 2px solid #adadad;
   position: relative;
   margin: 30px 0;
 }
 
 .form-field {
-    font-size: 15px;
-  color: #333;
+  font-size: 2em;
+  color: #fff;
   border: none;
   width: 100%;
   outline: none;
@@ -104,4 +104,4 @@ input:focus + span::after{
     .form-tail {
         font-size: 1em;
     }
-  }
+}

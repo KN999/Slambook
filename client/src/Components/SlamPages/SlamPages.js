@@ -12,7 +12,7 @@ function AlternativeText () {
 
 function showSlampages (data) {
     return (
-        <div>
+        <div className="display-flex">
             {data.map( (slampage) => (
                 <table>
                     <tr>
@@ -51,7 +51,7 @@ function showSlampages (data) {
 
 function SlamPages () {
     const [Slampages, setSlampages] = useState([]);
-    const [username, setusername] = useState('kn99');
+    const [username, setusername] = useState(localStorage.getItem('Token'));
     useEffect(()=>{
         axios.get('/actions/slampages', {
             params : {

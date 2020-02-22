@@ -1,5 +1,8 @@
 .search-form {
-    width: 70%;
+    width: 100vw;
+    display: flex;
+    padding: 0px 15em;
+    box-sizing: border-box;
 }
 
 #dash-search .container {
@@ -20,4 +23,16 @@
     cursor: pointer;
     border-radius: 30px;
     font-size: x-large;
+    margin-left: 20px;
+    margin-top: 20px;
 }
+
+.input-search {
+    width: 100vw;
+}
+
+@media(max-width:800px){
+    .search-form {
+        padding: 0px 5em; 
+    }
+  }
