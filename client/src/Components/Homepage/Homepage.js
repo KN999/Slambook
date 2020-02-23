@@ -7,7 +7,7 @@ function Homepage() {
             <header id="home-header">
                 <div className="container">
                     <h1>Slambook</h1>
-                    <h3>Nostalgia with a technical twist.</h3>
+                    <h3>Nothing like a Book. More than a Book</h3>
                 </div>
             </header>
             <main id="home-content">

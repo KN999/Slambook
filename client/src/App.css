@@ -8,12 +8,13 @@ a {
   text-decoration: none;
   padding: 0px 10px;
   color: #fff;
+  color: #0074d9;
   transition: 0.2s;
 }
 
 a:hover {
-  background-color: white;
-  color: #0074D9;
+  background-color: #0074D9;
+  color: white;
   border-radius: 10px;
   width: 50px;
 }

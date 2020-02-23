@@ -1,10 +1,12 @@
 #homepage {
     height: 100vh;
     background: linear-gradient(to left, #c133f7, #2ab6e3);
+    background: url("../../Public/3rd.jpg") no-repeat fixed center;
 }
 
 #home-header {
     color: #fff;
+    color: #0074d9;
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -18,7 +20,7 @@
     text-align: center;
     font-size: 10em;
     font-family: 'Dancing Script', cursive;
-    margin-top: 15vh;
+    margin-top: -2vh;
 }
 
 #home-header h3{
@@ -33,9 +35,10 @@
     padding: 0px;
     text-align: center;
     color: #fff;
+    color: #0074d9;
     width: 100%;
     overflow: hidden;
-    margin-top: 10vh;
+    margin-top: 27vh;
 }
 
 #home-content h3 {

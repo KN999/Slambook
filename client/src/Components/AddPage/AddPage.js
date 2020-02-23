@@ -29,7 +29,7 @@ function AddPage (props) {
 
         axios.post('/actions/addpage', {
             username: username,
-            writer: writer,
+            writer: localStorage.getItem('Token'),
             Q1: Q1,
             Q2: Q2,
             Q3: Q3,
@@ -88,7 +88,7 @@ function AddPage (props) {
                     </div>
                 </div>
                 <div className="sidediv-submit">
-                    <a onClick={onSubmit}>
+                    <a className="AddPage-Submit-Button" onClick={onSubmit}>
                         <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>

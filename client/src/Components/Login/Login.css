@@ -23,7 +23,7 @@
 }
 
 .form-body {
-    margin: 0px 1em;
+    margin: 0px 2em;
 }
 
 .form-group {
@@ -33,7 +33,7 @@
 }
 
 .form-field {
-  font-size: 2em;
+  font-size: 1.4em;
   color: #fff;
   border: none;
   width: 100%;
@@ -86,6 +86,8 @@ input:focus + span::after{
 .form-tail {
     font-size: 1.2em;
 }
+
+
 
 @media(max-width:600px){
     #form-login {
