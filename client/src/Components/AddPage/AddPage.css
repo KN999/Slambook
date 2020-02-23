@@ -66,10 +66,6 @@
     color:white;
 }
 
-.fa-arrow-right:hover{
-    color: #0074D9;
-}
-
 @media(max-width:1100px){
     #form-addpage {
         display: block;
