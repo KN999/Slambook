@@ -1,28 +1,35 @@
-var express = require('express');
-var router = express.Router();
+// Importing required files and there reference
+const express = require('express');
+const router = express.Router();
 const crypto = require("crypto");
-
-var DatabaseClient = require('../database-layer/actions');
+const DatabaseClient = require('../database-layer/actions');
 
 // Search the user
-router.get('/search', function(req, res) {
-    var username = req.query.username;
+router.get('/search', (req, res) => {
+    
+    // Extracting the username
+    let username = req.query.username;
+
+    // calling the 'FindUser' from the Database layer
     DatabaseClient.FindUser(username, (result) => {
         res.send(result);
     })
 })
 
 // Dashboard of user
-router.get('/slampages', function(req, res) {
+router.get('/slampages', (req, res) => {
+
+    // calling the 'Slampages' from the Database layer
     DatabaseClient.Slampages(req.query.username, (result) => {
         res.send(result);
     })
 })
 
 // Add Slampages
-router.post('/addpage', function (req, res) {
+router.post('/addpage', (req, res) => {
 
-    var slampage = {
+    // Extracting the username and writer and answer
+    let slampage = {
         username: req.body.username,
         writer: req.body.writer,
         Q1: req.body.Q1,
@@ -33,6 +40,7 @@ router.post('/addpage', function (req, res) {
         Q6: req.body.Q6,
     };
 
+    // calling the 'AddPage' from the Database layer
     DatabaseClient.AddPage(slampage, (result) => {
         res.send(result);
     });

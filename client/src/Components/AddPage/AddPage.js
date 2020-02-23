@@ -2,6 +2,18 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import './AddPage.css'
 
+function AddPageTitle() {
+  return (
+    <div className="sidediv-addpage">
+      <div className="">
+        <div className="container">
+          <h2 className="sidediv-title">Add Page</h2>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function AddPage (props) {
     const [Q1, setQ1] = useState('');
     const [Q2, setQ2] = useState('');
@@ -9,7 +21,7 @@ function AddPage (props) {
     const [Q4, setQ4] = useState('');
     const [Q5, setQ5] = useState('');
     const [Q6, setQ6] = useState('');
-    const [writer, setWriter] = useState('Himesh');
+    const [writer, setWriter] = useState('Dinesh');
     const [username, setUsername] = useState('kn99');
     
     function onSubmit(event) {
@@ -44,14 +56,8 @@ function AddPage (props) {
     return (
         <div id="addpage">
             <div id="form-addpage">
-                <div className="form-head">
-                    <div className="container">
-                        <h2>
-                            AddPage
-                        </h2>
-                    </div>
-                </div>
-                <div className="form-body">
+            <AddPageTitle/>
+                <div className="form-body addpage-formbody">
                     <div className="container">
                         <form onSubmit={onSubmit}>
                             <div className="form-group question">
@@ -78,9 +84,13 @@ function AddPage (props) {
                                 <label className="width-345px">Something I hate about you : </label>
                                 <input type="text" name="Q6" className="form-field" autoComplete="off" value={Q6} onChange={ e => setQ6(e.target.value) } required/>
                             </div>
-                            <input type="submit" value="Add Page" className="addpage form-btn"/>
                         </form>        
                     </div>
+                </div>
+                <div className="sidediv-submit">
+                    <a onClick={onSubmit}>
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>

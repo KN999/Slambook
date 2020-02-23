@@ -1,11 +1,13 @@
 #addpage {
     text-align: center;
-    background: linear-gradient(to bottom, #8a2387, #e94057, #f27121);
+    background: rgba(12,12,12,0.8);
     height: 100vh;
     color: #fff;
+    width: 100vw;
 }
 
 #form-addpage {
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,8 +15,8 @@
     background-color: rgba(12,12,12,0.8);
     border-radius: 30px;
     background:transparent;
-    height: 98vh;
-    width: 85vh;
+    height: 100vh;
+    width: 100vw;
 }
 
 .addpage {
@@ -38,11 +40,47 @@
 
 .question {
     display: flex;
+    text-align: initial;
 }
 
-@media(max-width:600px){
+.sidediv-addpage {
+    background: linear-gradient(to bottom, #8a2387, #e94057, #f27121);
+    width: 25vw;
+    margin: 0px;
+    font-size: 2em;
+}
+
+.sidediv-submit {
+    width: 12vw;
+    padding: 7em 0px 6em 0px;
+    font-size: 3em;
+}
+
+.addpage-formbody {
+    padding: 7em 0px;
+    width: 63vw;
+}
+
+.sidediv-title{
+    padding: 6em 0em;
+}
+
+.fa-arrow-right {
+    font-size:40px;
+    color:white;
+}
+
+@media(max-width:1100px){
     #form-addpage {
-        height: 95vh;
-        width: 45vh;
+        display: block;
+    }
+
+    .sidediv-addpage {
+        width: 100%;
+        height: 15vh;
+    }
+
+    .sidediv-addpage {
+        padding: 0.5em;
     }
   }
