@@ -9,6 +9,7 @@
     color: #ffffff;
     box-sizing: border-box;
     position: relative;
+    display: flex;
 }
 
 .dash-head h1 {
@@ -19,8 +20,43 @@
     padding: 0px;
 }
 
+.Logout {
+    margin-top: 2.7em;
+    margin-right: 1em;
+    margin-left: -3em;
+    font-size: 2em;
+}
+
+.Logout-Button {
+    color: white;
+}
+
 @media(max-width:600px){
     .dash-head h1 {
         font-size: 3.5em;  
     }
-  }
+}
+
+@media(max-width: 800px) {
+    
+    .dash-head {
+        display: block; 
+    }
+
+    .Logout {
+        margin-top: 0em;
+        margin-right: 0em;
+        margin-left: 0em;
+        font-size: 1.5em;
+    }
+}
+
+@media(max-width:900px){
+    .dash-head {
+        height: 20vh;
+    }
+
+    .Logout {
+        text-align: center;
+    }
+}

@@ -36,7 +36,7 @@ exports.FindUser = (user, callback) => {
                 callback({
                     code : 405,
                     message : "Data found",
-                    data : result
+                    data : user
                 })
             }
         })

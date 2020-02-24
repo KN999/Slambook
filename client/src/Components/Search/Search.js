@@ -6,9 +6,6 @@ function Search (props) {
 
     const [username, setUsername] = useState('');
     const [result, setResult] = useState();
-    let temp = {
-        name:'ram'
-    };
 
     function onSubmit (event) {
         event.preventDefault();
@@ -21,9 +18,10 @@ function Search (props) {
                 if(res.data.code === 405) 
                 {  
                     setResult(res.data.user);
-                    temp = res.data;
-                    console.log("searched!");
-                    props.history.push("/");
+                    props.props.history.push({
+                        pathname: '/addpage',
+                        state: { username: res.data.data }
+                      });
                 }
                 else 
                 {

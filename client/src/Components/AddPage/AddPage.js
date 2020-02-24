@@ -15,20 +15,19 @@ function AddPageTitle() {
 }
 
 function AddPage (props) {
+    
     const [Q1, setQ1] = useState('');
     const [Q2, setQ2] = useState('');
     const [Q3, setQ3] = useState('');
     const [Q4, setQ4] = useState('');
     const [Q5, setQ5] = useState('');
     const [Q6, setQ6] = useState('');
-    const [writer, setWriter] = useState('Dinesh');
-    const [username, setUsername] = useState('kn99');
     
     function onSubmit(event) {
         event.preventDefault();
 
         axios.post('/actions/addpage', {
-            username: username,
+            username: props.location.state.username,
             writer: localStorage.getItem('Token'),
             Q1: Q1,
             Q2: Q2,

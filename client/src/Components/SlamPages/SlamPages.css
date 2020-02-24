@@ -9,7 +9,7 @@
 
 table {
     margin: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     background: white;
     padding: 2em;
     border-radius: 20px;
@@ -18,11 +18,22 @@ table {
 }
 
 .display-flex {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
 
-@media(max-width:1200px){
+@media(max-width:1200px) {
     .display-flex {
-        display: block;  
+        display: grid; 
+        grid-template-columns: auto;
+        grid-gap: 10px; 
     }
-  }
+}
+
+@media(max-width:500px) {
+    table {
+        padding: 1em;
+        font-size: medium;
+    }
+}
