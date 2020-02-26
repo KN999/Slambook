@@ -4,7 +4,8 @@
   "description": "\"A childhood memory implemented with a technical twist.\"",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"node server.js\" \"cd client && npm start\"",
+    "start": "npm install && node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "node server.js"
   },
   "keywords": [
