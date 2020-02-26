@@ -1,85 +1,130 @@
+// Importing required files and there reference
 const MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
+const assert = require('assert');
+const bcrypt = require('bcrypt');
 require('dotenv').config()
 
-const uri = process.env.DB_URI;
+// Database's URI is fetched from environment variable
+const uri = "mongodb+srv://skaduz:khooni_kabootar@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
 
-exports.ValidateUser = function (user, callback) {
+// Login User
+exports.ValidateUser = (user, callback) => {
 
-    MongoClient.connect(uri, function (err, client) {
+    // Connection with database is made
+    MongoClient.connect(uri, (err, client) => {
+
+        // assert if error occured during connecting with database
         assert.equal(null, err);
-        var db = client.db('slambooks');
-        var result = {};
 
-        db.collection('users').find({ username: user.username }).forEach(function (dbuser) {
+        // creating reference to the DB slambooks
+        const db = client.db('slambooks');
+        let result = {};
 
-            if (dbuser.password === user.password) {
-                result.code = 102; // 102 - Credential Matched
-                result.message = 'Success';
-                result.token = user.username;
-            }
-            else {
-                result.code = 101; //101 - Invalid Password
-                result.message = 'Failure: Password is incorrect';
-            }
+        // finding the user with user.username(varaible) in the collection "users"
+        db.collection('users').find({ username: user.username }).forEach( async(dbuser) => {
 
-        }, () => {
-            if (result.code !== 101 && result.code !== 102) {
-                result.code = 100; // 100 - Invalid username
-                result.message = 'user doesn\'t exist';
-            }
-            client.close();
-            callback(result);
+           // Decrypt and check the password
+           await bcrypt.compare(user.password, dbuser.password, (err, res)=>{
+
+               // If some error occured return error
+                if(err) {
+                    console.log("some error occc=ured!",error);
+                    callback("ERROR : ",error);
+                }
+
+                // if the password match return successful message with callback
+                if(res) {
+                    console.log("In the if clause")
+                    result.code = 102; // 102 - Credential Matched
+                    result.message = 'Success';
+                    result.token = user.username;
+                    callback(result);
+                }
+
+                // if the password doesn't match return Failure with callback
+                else {
+                    console.log("In the else clause")
+                    result.code = 101; //101 - Invalid Password or Username
+                    result.message = 'Failure: Password or Username is incorrect';
+                    result.error = err;
+                    callback(result);
+                }
+            });
         });
 
     });
 }
 
-exports.CheckUsername = (username, callback) => {
-    MongoClient.connect(uri, function (err, client) {
+// Check for the availibility of username
+exports.CheckUsername = (user, callback) => {
+    
+    // Connection with database is made
+    MongoClient.connect(uri, async(err, client) => {
+        
+        // assert if error occured during connecting with database
         assert.equal(null, err);
-        var db = client.db('slambooks');
-        var result = {};
 
-        // Check if username is available
-        db.collection('users').find({ username: username }).forEach(function (dbuser) {
-            if (dbuser) {
+        // creating reference to the DB slambooks
+        const db = client.db('slambooks');
+        let result = {};
 
+        // finding the user with user.username(varaible) in the collection "users"
+        db.collection('users').find({ username: user.username }).toArray()
+        .then((users) => {
+            // user doesn't exist register user
+            if(users.length === 0)
+                this.RegisterUser(user, callback);
+            // user exist send error message
+            else {
                 result.code = 300; // 300 - Invalid Username/ username already taken
                 result.message = 'Failure: Username already exists';
+                callback(result);
             }
-        }, () => {
+            
+            // print successful message for the console
+            console.log("Registration Done.")
+        })
 
-            if (result.code !== 300) {
-
-                result.code = 302; // 302 - username available
-                result.message = "Success"
-            }
-
-            client.close();
-            callback(result)
-        });
+        // if any error occured
+        .catch((error) => {
+            console.log("ERROR : ", error);
+        })
     });
 }
 
+// Register the user
 exports.RegisterUser = (user, callback) => {
 
-    var token = user.username;
+    // Define a Token for the client
+    let token = user.username;
 
-    MongoClient.connect(uri, function (err, client) {
+    // Connection with database is made
+    MongoClient.connect(uri, (err, client) => {
+        
+        // assert if error occured during connecting with database
         assert.equal(null, err);
-        var db = client.db('slambooks');
-        var result = {};
-    
-        // Add user
-        db.collection('users').insertOne(user, function (err, res) {
 
+        // creating reference to the DB slambooks
+        const db = client.db('slambooks');
+        let result = {};
+    
+        // Add user to the collection "users"
+        db.collection('users').insertOne(user, (err, res) => {
+
+            // If some error occured return error
+            if(err) {
+                console.log("some error occc=ured!",error);
+                callback("ERROR : ",error);
+            }
+
+            // If some user is added successfully to the collection then return the successful response
             result.code = 303;// 303 - user registered successfully
             result.message = 'Success';
             result.token = token;
             console.log("item inserted");
-
             callback(result);
+            
+            // close the connection with database
             client.close();
         });
 

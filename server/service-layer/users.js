@@ -1,42 +1,48 @@
-var express = require('express');
-var router = express.Router();
+// Importing required files and there reference
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+const DatabaseClient = require('../database-layer/users');
+const saltRounds = 10;
+require('dotenv').config()
 
-var DatabaseClient = require('../database-layer/users');
+// Login the user
+router.post('/login', async(req, res) => {
 
-router.get('/ping', function (req, res) {
-    res.send("pong")
-})
-
-router.post('/login', function (req, res) {
-
-    var user = {
+    // Extracting the username and password
+    let user = {
         username: req.body.username,
         password: req.body.password,
     }
-
+   
+    // Calling the 'ValidateUser' from the database layer
     DatabaseClient.ValidateUser(user, (result) => {
         res.send(result);
     });
+
 });
 
-router.post('/register', function (req, res) {
-    var user = {
+// Register the user
+router.post('/register', async(req, res) => {
+
+    // Extracting the user's detail
+    let user = {
         name: req.body.name,
         username: req.body.username,
-        password: req.body.password,
-        slampages: [],
+        password: '',
+        slampages: []
     };
 
-    DatabaseClient.CheckUsername(user.username, (result) => {
-        if (result.code === 302) { // Username is available
-            DatabaseClient.RegisterUser(user, (result) => {
-                res.send(result);
-            });
-        }
-        else {
+    // hash the password
+    bcrypt.genSalt(10).then(async(salt)=>{
+        user.password = await bcrypt.hash(req.body.password, salt);
+    })
+    .then(()=>{
+        // call the 'CheckUsername' and add the user to the collection
+        DatabaseClient.CheckUsername(user, (result) => {
             res.send(result);
-        }
-    });
+        });
+    })
 
 });
 

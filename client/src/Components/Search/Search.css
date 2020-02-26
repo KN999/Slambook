@@ -1,8 +1,11 @@
 .search-form {
-    width: 100vw;
     display: flex;
     padding: 0px 15em;
     box-sizing: border-box;
+}
+
+#dash-search {
+    height : 20vh;
 }
 
 #dash-search .container {
@@ -31,8 +34,18 @@
     width: 100vw;
 }
 
+@media(max-width:600px){
+    #dash-search .form-field {
+        font-size: 2em; 
+    }
+
+    #dash-search {
+        height : 15vh;
+    }
+}
+
 @media(max-width:800px){
     .search-form {
         padding: 0px 5em; 
     }
-  }
+}
