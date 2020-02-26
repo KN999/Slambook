@@ -60,7 +60,7 @@ function SlamPages () {
         })
         .then(res => {
             if(res.data.code === 404) {
-                setSlampages(res.data.slambook.slampages)
+                setSlampages(res.data.slambook)
                 console.log(res);
             }
             else {
@@ -74,12 +74,11 @@ function SlamPages () {
         })
     },[])
 
-
-
     return (
+        
         <div id="slam-pages">
             <div className="container">
-                {(Slampages)?showSlampages(Slampages):AlternativeText()}
+                {(Slampages.length != 0)?showSlampages(Slampages):AlternativeText()}
             </div>
         </div>
     );

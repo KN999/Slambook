@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+#dash-search {
+    height : 20vh;
+}
+
 #dash-search .container {
     text-align: -webkit-center;
 }
@@ -33,6 +37,10 @@
 @media(max-width:600px){
     #dash-search .form-field {
         font-size: 2em; 
+    }
+
+    #dash-search {
+        height : 15vh;
     }
 }
 

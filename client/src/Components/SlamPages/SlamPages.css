@@ -1,6 +1,12 @@
 .alternate-text {
     font-size: 2em;
     color: #4cff8b;
+    margin-top: 1.5em;
+    padding-bottom: 8.5em;
+}
+
+#slam-pages {
+    background: linear-gradient(to right, #ff9966, #ff5e62);
 }
 
 #slam-pages .container {

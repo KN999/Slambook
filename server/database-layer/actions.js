@@ -126,7 +126,7 @@ exports.Slampages = (username, callback) => {
             if (slampages) {
                 result.code = 404; // Success in retrieving data
                 result.message = "Data found";
-                result.slambook = slampages;
+                result.slambook = slampages.slampages;
             }
         },() => {
                 callback(result);
