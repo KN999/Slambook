@@ -58,7 +58,7 @@ function AddPage (props) {
             <AddPageTitle/>
                 <div className="form-body addpage-formbody">
                     <div className="container">
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={onSubmit} className="margin-2em">
                             <div className="form-group question">
                                 <label className="width-200px">My biggest dream : </label>
                                 <input type="text" name="Q1" className="form-field" autoComplete="off" value={Q1} onChange={ e => setQ1(e.target.value) } required/>
@@ -79,7 +79,7 @@ function AddPage (props) {
                                 <label className="width-345px">Something I like about you : </label>
                                 <input type="text" name="Q5" className="form-field" autoComplete="off" value={Q5} onChange={ e => setQ5(e.target.value) } required/>
                             </div>
-                            <div className="form-group question">
+                            <div className="form-group question lastquestion">
                                 <label className="width-345px">Something I hate about you : </label>
                                 <input type="text" name="Q6" className="form-field" autoComplete="off" value={Q6} onChange={ e => setQ6(e.target.value) } required/>
                             </div>

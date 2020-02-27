@@ -18,7 +18,7 @@
 
 @media(max-width:600px){
     #form-register {
-        height: 80vh;
-        width: 45vh;
+        height: 535px;
+        width: 300px;
     }
   }
