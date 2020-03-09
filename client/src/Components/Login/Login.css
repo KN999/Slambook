@@ -81,6 +81,7 @@ input:focus + span::after{
     color:#fff;
     cursor: pointer;
     border-radius: 30px;
+    font-size: large;
 }
 
 .form-tail {
