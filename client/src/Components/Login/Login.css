@@ -102,6 +102,7 @@ input:focus + span::after{
 
     .form-btn {
         margin-bottom:10px;
+        font-size: small;
     }
 
     .form-tail {
