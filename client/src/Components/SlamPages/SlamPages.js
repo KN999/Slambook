@@ -32,7 +32,7 @@ function showSlampages (data) {
                         <td>: {slampage.Q3}</td>
                     </tr>
                     <tr>
-                        <td>Something I like about you</td>
+                        <td>Relationship between us</td>
                         <td>: {slampage.Q4}</td>
                     </tr>
                     <tr>
