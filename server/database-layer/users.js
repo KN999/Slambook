@@ -2,10 +2,12 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
-require('dotenv').config()
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 // Database's URI is fetched from environment variable
-const uri = "mongodb+srv://skaduz:khooni_kabootar@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
 
 // Login User
 exports.ValidateUser = (user, callback) => {

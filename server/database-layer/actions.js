@@ -4,7 +4,7 @@ const assert = require('assert');
 require('dotenv').config()
 
 // Database's URI is fetched from environment variable
-const uri = "mongodb+srv://skaduz:khooni_kabootar@slambook-1v2ta.mongodb.net/test?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
 
 // Find user
 exports.FindUser = (user, callback) => {
